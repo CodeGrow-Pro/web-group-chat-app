@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat test</title>
+</head>
+<body>
+    <div id="messages"></div>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+    <button  onclick="play()">play</button>
+    <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <!-- <script>
+        var socket = io()
+        const ul = document.getElementById('messages');
+ 
+
+    
+        socket.emit('new-user-join','rahul joined')
+        socket.on('new-user-join',(m)=>{      
+            const li = document.createElement('li')
+            li.innerText = " from on funtion rahul joined"
+            ul.appendChild(li)
+        })
+        const form = document.querySelector('#form');
+        form.addEventListener('submit',()=>{
+            socket.emit('new-user-join',(m)=>{      
+            const li = document.createElement('li')
+            li.innerText = "sumited rahul joined"
+            ul.appendChild(li)
+        })
+        })
+    </script> -->
+    <script>
+        function play() {  
+  var audio = new Audio('http://localhost:5501/audio/recive-massage.mp3')
+  audio.play();
+}
+
+// var audio = new Audio('http://127.0.0.1:5501/audio/recive-massage.mp3')
+//                 audio.play()
+    //         function play(){
+    //       var a = new Audio('./audio/join-chat.mp3').play()
+    //       console.log(a)
+    // }
+        const socket = io()
+        const form = document.getElementById('form')
+        var messageInp = document.getElementById('input')
+        const messageContain = document.getElementById('messages')
+        var name = prompt('enter name to join')
+        socket.emit('new-user-join',name)
+        socket.on('user-joined',data=>{
+            const h = document.createElement('h2')
+             h.textContent = `${data} joined the chat`;
+             messageContain.append(h)
+        }) 
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            const val = messageInp.value;
+            socket.emit('send',val);
+            messageInp.value = '';
+        })
+        socket.on('receive',data=>{
+            messageContain.append(`from ${data.name} message : ${data.message}`)
+        })
+    </script>
+</body>
+</html>

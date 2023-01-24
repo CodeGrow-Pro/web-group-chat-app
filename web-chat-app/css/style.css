@@ -1,0 +1,82 @@
+.chat-joiners {
+   height: 600px;
+    background-color: black;
+    color:white;
+    border-right: 2px solid white;
+    text-align: center;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.message-body {
+    height: 600px;
+    background-color: black;
+    color: white;
+    border-left: 2px solid white;
+    text-align: center;
+    overflow-x: hidden;
+     overflow-y: auto;
+     background-image: url('https://cdn.wallpapersafari.com/33/45/5YmTDJ.jpg');
+}
+.user {
+    border: 2px solid white;
+    border-bottom: hidden;
+    padding: 5px;
+}
+.user img {
+         height: 50px;
+         width:50px;
+         border-radius: 50%;
+        display: flex;
+        margin-left: 15px;
+        flex-direction: row;
+        float: left;
+        justify-content: center;
+        overflow: hidden;
+}
+.user:hover{
+  opacity: 0.3;
+}
+.reciver-left , .sender-right{
+background-color: rgb(122, 134, 127);
+color: rgb(254, 251, 251);
+height: auto;
+padding: 10px;
+width: auto;
+border-radius: 10px;
+text-align: justify;
+}
+.message-body .row {
+     padding: 25px;
+     display: flex;
+     flex-direction: row;
+}
+.rights {
+display: flex;
+flex-direction: row;
+justify-content: end;
+}
+.title {
+    height: auto;
+    background-attachment: fixed;
+    padding-top: 10px;
+}
+.title img {
+    height: 50px;
+    width: 50px;
+    border:3px solid rgb(63, 63, 63);
+    border-radius: 50%;
+}
+input {
+    height: 40px;
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 150px;
+    background-color: aliceblue;
+}
+.inner {
+    border-left: 5px solid rgb(153, 38, 38);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(38, 39, 39);
+}
