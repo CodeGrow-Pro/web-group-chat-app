@@ -8,17 +8,6 @@ app.get('/chat',(req,res)=>{
   res.sendFile(__dirname + '/index.html');
 })
 const users = {}
-// io.on('connection', socket=>{
-//       socket.on('new-user-join', msg => {
-//         users[socket.id] = msg
-//         io.emit('new-user-join');
-//       });
-//     socket.on('send',message=>{
-//         io.emit('send',message)
-//         // socket.boardcast.emit('send',message)
-//         //{message:message,name:users[socket.id]}
-//     })
-// })
 io.on('connection',socket=>{
 
        socket.on('new-user-join',name=>{
